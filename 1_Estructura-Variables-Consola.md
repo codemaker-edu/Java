@@ -121,6 +121,11 @@ Para que nuestros programas puedan interactuar con el usuario, deben mostrar y p
     //Ojo, probablemente quieras guardar la respuesta del usuario en una variable String para poder usarla después
     ```
 
+> [!CAUTION]
+> Todo lo que el usuario introduce en un teclado, Java lo considera un String. Si lo que estás pidiendo al usuario es un número, debes convertirlo:
+> ```java
+> int edad = Integer.parseInt( System.console().readLine("Qué edad tienes?") );
+> ```
 
 ## Comentarios
 

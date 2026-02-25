@@ -129,4 +129,4 @@ Hagamos algunas observaciones de lo que está haciendo este código:
 2. Un bucle principal (el de la `i`) recorre las filas.
 3. Un bucle interno (el de la `j`) recorre cada elemento de cada fila (es decir, cada columna) y lo imprime (con `print`, sin `ln` para que se impriman seguidos en la misma linea).
 4. Al terminar cada fila, y antes de pasar a la siguiente, se hace un `println` vacío solo para saltar de línea.
-5. 
+

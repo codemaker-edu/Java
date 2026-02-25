@@ -2,11 +2,9 @@
 
 ## Concepto
 Las estructuras de control permiten **modificar el flujo de ejecución** de un programa.
-Con ellas podemos:
-- Ejecutar instrucciones de forma secuencial.
-- Tomar decisiones (selección).
-- Repetir bloques de código (iteración).
-- Alterar el flujo con saltos.
+Con ellas podemos, especialmente:
+- Tomar decisiones (seleccionar si se ejecuta un código u otro en función de un valor o condición).
+- Repetir bloques de código (bucles).
 
 Según el teorema de la estructura, todo programa puede construirse únicamente con:
 - **Secuencia**: instrucciones ejecutadas en orden.
@@ -15,9 +13,10 @@ Según el teorema de la estructura, todo programa puede construirse únicamente 
 
 ## Operadores
 
-Los operadores son símbolos que indican una operación a realizar sobre uno o varios valores, muy utilizados habitualmente para comprobar condiciones.
+Los operadores son símbolos que se utilizan habitualmente para comprobar condiciones.
 
 ### Operadores de comparación
+Operadores para comparar datos
 - `==` → igual que  
 - `!=` → distinto que  
 - `>`  → mayor que  
@@ -26,7 +25,7 @@ Los operadores son símbolos que indican una operación a realizar sobre uno o v
 - `<=` → menor o igual que 
 
 ### Operadores lógicos
-
+Operadores utilizados para poder hacer más de una comprobación
 - `&&` → AND (true si ambas condiciones son verdaderas)
 - `||` → OR (true si al menos una condición es verdadera)
 - `!` → NOT (niega la condición)
@@ -38,8 +37,8 @@ Los operadores son símbolos que indican una operación a realizar sobre uno o v
 Cuando solo queremos comprobar si se cumple una condición para realizar una acción.
 
 ```java
-if (condición) {
-   // sentencias si se cumple
+if (edad >= 18) {
+   // programación si se cumple
 }
 ```
 
@@ -48,10 +47,10 @@ if (condición) {
 Cuando queremos realizar una acción si se cumple la condición, y otra acción si no se cumple.
 
 ```java
-if (condición) {
-   // sentencias si es verdadera
+if (edad >= 18) {
+   // programación si se cumple
 } else {
-   // sentencias si es falsa
+   // programación si no se cumple
 }
 ```
 ### Condicional múltiple - `if - else if - else`
@@ -59,35 +58,37 @@ if (condición) {
 Cuando queremos realizar diferentes acciones en función del resultado de la condición.
 
 ```java
-if (condición) {
-    // sentencias si es verdadera
-} else if (otra condición) {
-    // sentencias si es verdadera esta otra condicion
+if (edad >= 18) {
+    // programación que se ejecuta si es mayor de 18 años
+} else if (edad >= 16 && edad < 18) {
+    // programación que se ejecuta si tiene entre 16 y 18 años
 } else {
-    // sentencias si es falsa
+    // programación que se ejecuta si no ha cumplido ninguna de las anteriores condiciones (en este caso, si es menor de 16 años)
 }
 ```
 
 ### Condicinoal múltiple – `switch`
 
-Permite múltiples caminos de ejecución en función del valor que tenga una variable. Similar al `if - else if - else`, pero aquí no se compara (no hay símbolos `<`, `>`, `==`, etc.), solo se mira qué hay en la variable y en cada caso se realiza una acción.
+Permite ejecutar un código u otro en función del valor que tenga una variable. Similar al `if - else if - else`, pero aquí no se compara (no hay símbolos `<`, `>`, `==`, etc.), solo se mira qué hay en la variable y en cada caso se realiza una acción.
 
 ```java
-switch (variable) {
-   case valor1:
-      // sentencias
+String estacion = "Verano";
+
+switch (estacion) {
+   case "Verano":
+      System.out.println("hace calor");
       break;
-   case valor2:
-      // sentencias
+   case "Invierno":
+      System.out.println("hace frio");
       break;
    default:
-      // sentencias por defecto
+      System.out.println("no se reconoce esa estación"); //Valores distintos a los anteriores
 }
 ```
 
 ### Operador ternario
 
-Es una forma compacta de hacer un if-else.
+Es una forma compacta de hacer un if-else, que utilizan usuarios más avanzados. No es necesario que aprendas a usarla todavía, pero está bien saber que existe.
 
 ```java
 variable = (condición) ? valor_si_verdadero : valor_si_falso;
@@ -95,14 +96,27 @@ variable = (condición) ? valor_si_verdadero : valor_si_falso;
 
 ## Estructuras iterativas (bucles)
 
-### Bucle `while`
+### Bucle `for`
 
-Se trata de un bucle que se repite mientras se cumpla una determinada condición. Deja de repetirse la instrucción cuando la condición deje de repetirse.
-
+Se usa cuando se conoce el número exacto de iteraciones (*Ejemplo: repetir 10 veces*).
 
 ```java
-while (condición) {
-   // sentencias
+for (int i = 0; i < 10; i++) {
+   // rogramación que se repetirá 10 veces
+}
+```
+En este bucle podemos ver:
+- `int i = 0`: creamos la variable contador
+- `i < 10`: decimos que se repita mientras la i sea menor que 10
+- `i++`: decimos que la `i` vaya aumentando de 1 en 1.
+
+### Bucle `while`
+
+Se trata de un bucle que se repite mientras se cumpla una determinada condición. Deja de repetirse la instrucción cuando la condición deje de cumplirse. Es decir, es un *mientras*, no un *hasta*.
+
+```java
+while (puntos > 0) {
+   // programación que se repetirá mientras puntos sea mayor que cero
 }
 ```
 
@@ -112,18 +126,8 @@ Exactamente igual que el bucle `while`, con la única diferencia de que primero 
 
 ```java
 do {
-   // sentencias
-} while (condición);
-```
-
-### Bucle `for`
-
-Se usa cuando se conoce el número de iteraciones (repetir x veces).
-
-```java
-for (inicialización; condición; actualización) {
-   // sentencias
-}
+   // programación que se repetirá mientras puntos sea mayor que cero
+} while (puntos > 0);
 ```
 
 ### Sentencias de salto
@@ -132,13 +136,10 @@ Un bucle, e incluso otras estructuras, pueden interrumpirse con las siguientes i
 
 - `break` → interrumpe un bucle o switch.
 - `continue` → salta a la siguiente iteración del bucle.
-- `return` → devuelve un valor y finaliza un método (este lo veremos más adelante).
-- `goto` → manda la ejecución del código a otra parte, pero su uso está ya obsoleto y desaconsejado.
-
 
 ### Equivalencias entre bucles
 
-Todos los bucles (while, do-while, for) son equivalentes en potencia. Es decir, un mismo problema podrá resolverse con diferentes bucles. Se recomienda elegirlos según el problema:
-- `for` → número de iteraciones conocido.
-- `while` → número de repeticiones indeterminado.
-- `do-while` → número de repeticiones indeterminado y debe ejecutarse al menos una vez.
+Todos los bucles (while, do-while, for) son equivalentes en potencia. Esto quiere decir que un mismo problema podrá resolverse con diferentes bucles. Se recomienda elegirlos según el problema:
+- `for` → se repite un número exacto de veces.
+- `while` → se repite mientras se cumpla una condición.
+- `do-while` → se repite mientras se cumpla una condición, asegurando que se ejecuta al menos una vez aunque no se cumpla.

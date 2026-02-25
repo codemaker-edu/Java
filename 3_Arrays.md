@@ -1,28 +1,23 @@
 ## 1. Arrays Unidimensionales (Vectores)
-Un array (también llamado vector) es una estructura de datos que nos permite almacenar un conjunto de elementos del mismo tipo en posiciones de memoria contiguas.
-Piénsalo como un archivador con un número fijo de cajones:
-- El archivador es el array.
-- Cada cajón es una posición o índice.
-- Lo que guardas en cada cajón es el elemento.
-- Todos los cajones guardan el mismo tipo de cosa (ej. todos guardan números enteros).
+Un array (también llamado vector) es una estructura de datos que nos permite almacenar un conjunto de elementos del mismo tipo en posiciones de memoria contiguas. Puedes verlo como una *lista de variables* por ahora.
+Piénsalo como un mueble con un número fijo de cajones:
+- El mueble es el array.
+- Cada cajón es una posición (hueco).
+- Lo que guardas en cada cajón es el dato.
 
-### Declaración e Inicialización (sin valores)
-Para usar un array, debemos seguir dos pasos: declararlo y luego inicializarlo (reservar su espacio en memoria, ya que su tamaño es fijo).
+> [!Important]
+> En Java, los arrays solo pueden guardar datos de un mismo tipo y con una cantidad fija (es decir, si decimos que serán 10 Strings, ni podremos meter luego un int, ni podremos meter 11 Strings).
+
+### Crear array sin valores
+Para usar un array, debemos seguir dos pasos: declararlo y luego inicializarlo (darle un nombre e indicarle el tamaño)
 
 ```java
-
-// 1. Declaración (Le decimos a Java que 'notas' será un array de enteros)
-int[] notas;
-
-// 2. Inicialización (Reservamos 5 espacios en memoria para 5 enteros, tamaño que no se puede cambiar después).
-notas = new int[5]; 
-
-// O todo en una línea (lo más común)
-double[] precios = new double[10]; // Un array para 10 precios
+// Creamos (declaramos) el array e indicamos cuántos huecos tendrá (inicializamos)
+int[] notas = new int[10]; // Un array para 10 notas de tipo int
 ```
 
-### Inicialización con valores (Estática)
-Si ya sabes qué valores va a contener, puedes inicializarlo directamente:
+### Crear array con valores
+Si ya sabes qué valores va a contener, podemos indicarlos directamente al crearlo:
 
 ```java
 // Java crea automáticamente un array de tamaño 4
@@ -33,13 +28,18 @@ String[] diasSemana = {"Lunes", "Martes", "Miércoles", "Jueves", "Viernes"};
 
 Accedemos a cada "cajón" (elemento) usando su índice, que se escribe entre corchetes [].
 
-¡Importante! Los índices en Java (y en la mayoría de lenguajes) empiezan siempre en 0.
+> [!Important]
+> Los índices en Java (y en la mayoría de lenguajes) empiezan siempre en 0.
 
 Si un array tiene 5 elementos, sus índices van del 0 al 4.
 - `notas[0]` es el primer elemento.
 - `notas[4]` es el último elemento.
 
-Para saber el tamaño de un array, usamos la propiedad `.length` (sin paréntesis).
+Con esto, podemos hacer dos cosas:
+- Consultar y mostrar un elemento: `System.out.println( notas[3] );`
+- Guardar o cambiar valores: `notas[2] = 7;`
+
+Para saber el tamaño de un array, podemos usar la propiedad `.length` (sin paréntesis).
 
 ### Recorriendo un array (Bucle for)
 
@@ -47,7 +47,7 @@ La forma más común y eficiente de "visitar" cada elemento de un array es usand
 
 ```java
 for (int i = 0; i < notas.length; i++) {
-System.out.print(notas[i]);
+System.out.print(notas[i]); //Imprime la nota[0], después la nota[1]...
 }
 ```
 
@@ -66,12 +66,12 @@ System.out.print(nota + " ");
 
 ### ¿Cuándo usar un bucle u otro?
 
-Usa el for normal (con índice i) cuando:
+Usa el `for` normal (con índice i) cuando:
 - Necesitas saber la posición del elemento (por ejemplo, para decir "La nota del alumno 1 es...").
 - Necesitas modificar el contenido del array (ej: notas[i] = 5;).
 - No quieres recorrer el array completo (por ejemplo, solo la mitad inversa).
 
-Usa el for-each cuando:
+Usa el `for-each` cuando:
 - Solo quieres leer todos los datos uno por uno.
 - Quieres un código más limpio y evitar errores de "índice fuera de límites".
 
@@ -79,24 +79,21 @@ Usa el for-each cuando:
 
 ## 2. Arrays Bidimensionales (Matrices)
 
-Un array bidimensional es, simplemente, un "array de arrays". Nos sirve para representar datos en una cuadrícula (filas y columnas).
-Piénsalo como un tablero de ajedrez o una hoja de cálculo.
+Un array bidimensional es, simplemente, un "array de arrays". Nos sirve para representar datos en una cuadrícula (filas y columnas). Piénsalo como un tablero de ajedrez o una hoja de cálculo.
 
 ### Declaración e Inicialización
+Al igual que con los arrays anteriores (unidimensionales) podemos crearlos sin datos (vacíos) o ya con los datos rellenos. En ambos casos, usamos dobles corchetes `[][]` para indicar que es bidimensional.
 
-Usamos dobles corchetes [][].
 ```java
-// Declaración
-int[][] tablero;
+// Creamos el array vacío, 3 filas y 4 columnas
+int[][] tablero = new int[3][4];
 
-// Inicialización (3 filas, 4 columnas)
-tablero = new int[3][4];
-
-// Acceso (fila 1, columna 2) (Recuerda: índice 0)
+// Guardamos un dato (fila 1, columna 2) (Recuerda: índice 0)
 tablero[1][2] = 100;
-
-// Inicialización estática
-int[][] matriz = {
+```
+```java
+// Creamos el array ya con los datos
+int[][] tablero = {
     {1, 2, 3},  // Fila 0
     {4, 5, 6},  // Fila 1
     {7, 8, 9}   // Fila 2
@@ -112,7 +109,6 @@ Para recorrer una matriz, necesitamos un bucle for anidado:
 public class EjemploMatriz {
     public static void main(String[] args) {
 
-
         int[][] matriz = {
             {1, 2, 3},
             {4, 5, 6}
@@ -120,7 +116,7 @@ public class EjemploMatriz {
 
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz[i].length; j++) {
-                System.out.print("Posición [" + i + "][" + j + "] = " + matriz[i][j] + "\t");
+                System.out.print( matriz[i][j] );
             }
             System.out.println(); 
         }

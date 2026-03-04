@@ -67,7 +67,7 @@ if (edad >= 18) {
 }
 ```
 
-### Condicinoal múltiple – `switch`
+### Condicional múltiple – `switch`
 
 Permite ejecutar un código u otro en función del valor que tenga una variable. Similar al `if - else if - else`, pero aquí no se compara (no hay símbolos `<`, `>`, `==`, etc.), solo se mira qué hay en la variable y en cada caso se realiza una acción.
 

@@ -10,20 +10,20 @@ Esto tiene dos implicaciones fundamentales:
 
 Un String no se puede modificar (es inmutable). Si usas un método como `toUpperCase()`, no cambias el `String` original, sino que devuelves uno nuevo en mayúsculas.
 
-| Método                                    | Descripción                                      | Ejemplo                               |
-| ---                                       | ---                                              | ---                                   |
-| `int length()`                            | Devuelve el número de caracteres.                | `"Hola".length()`  → `4`    |
-| `char charAt(int i)`                      | Devuelve el carácter en el índice i.             | `"Hola".charAt(1)` → `o`    |
-| `boolean equals(String s)`                | Compara si el contenido es idéntico.             | `s1.equals(s2)`                       |
-| `boolean equalsIgnoreCase(String s)`      | Igual que equals pero ignora may/min.            | `"HOLA".equalsIgnoreCase("hola")` → `true`       |
-| `String toUpperCase()`                    | Devuelve una nueva cadena en mayúsculas.         | `"Hola".toUpperCase()` → `"HOLA"`  |
-| `String toLowerCase()`                    | Devuelve una nueva cadena en minúsculas.         | `"Hola".toLowerCase()` → `"hola"`  |
-| `String substring(int inicio, int fin)`   | Devuelve la subcadena desde inicio hasta fin-1.  | `"Hola".substring(1, 3)` → `"ol"`  |
-| `int indexOf(String s)`                   | Devuelve el índice de la primera aparición de s. | `"Hola".indexOf("la")` → `2`       |
-| `boolean contains(String s)`	            | Devuelve true si el texto contiene a s.	         | `"Hola".contains("ol")` → `true` |
-| `String trim()`	                          | Borra los espacios en blanco de los extremos.	   | `" hola ".trim()` → `"hola"` |
-| `String replace(char old, char new)`      |	Cambia unas letras por otras.	                   | `"casa".replace('a', 'o')` → `"coso"` |
-| `boolean startsWith(String s)`	          | Comprueba si empieza por ese texto.              | `"Profe".startsWith("P")` → `true` |
+| Método                                    | Descripción                                      |Devuelve (contesta)    | Ejemplo                               |
+| ---                                       | ---                                              |---                    | ---                                   |
+| `length()`                            | Devuelve el número de caracteres.                |`int`                  | `"Hola".length()`  → `4`    |
+| `charAt(int i)`                      | Devuelve el carácter en el índice i.             |`char`                 | `"Hola".charAt(1)` → `o`    |
+| `equals(String s)`                | Compara si el contenido es idéntico.             |`boolean`              | `s1.equals(s2)`                       |
+| `equalsIgnoreCase(String s)`      | Igual que equals pero ignora may/min.            |`boolean`              | `"HOLA".equalsIgnoreCase("hola")` → `true`       |
+| `toUpperCase()`                    | Devuelve una nueva cadena en mayúsculas.         |`String`               | `"Hola".toUpperCase()` → `"HOLA"`  |
+| `toLowerCase()`                    | Devuelve una nueva cadena en minúsculas.         |`String`               | `"Hola".toLowerCase()` → `"hola"`  |
+| `substring(int inicio, int fin)`   | Devuelve la subcadena desde inicio hasta fin-1.  |`String`               | `"Hola".substring(1, 3)` → `"ol"`  |
+| `indexOf(String s)`                   | Devuelve el índice de la primera aparición de s. |`int`                  | `"Hola".indexOf("la")` → `2`       |
+| `contains(String s)`	            | Devuelve true si el texto contiene a s.	         |`boolean`              | `"Hola".contains("ol")` → `true` |
+| `replace(char old, char new)`      |	Cambia unas letras por otras.	                   |`String`               | `"casa".replace('a', 'o')` → `"coso"` |
+| `startsWith(String s)`	          | Comprueba si empieza por ese texto.              |`boolean`              | `"Profe".startsWith("P")` → `true` |
+| `split(String s)`                 | Parte el String en trozos                        |`String[]`             | `"Hola a todos".split(" ") → `{"Hola", "a", "todos"}` |
 
 ## Errores comunes
 
